@@ -1,0 +1,199 @@
+@charset "utf-8";
+@import "_var", "_mixin";
+
+//sub common
+#btn{
+    position: fixed;width: 230px;height: 314px;bottom: 25px;left: 80px;z-index: 600;
+    a{display: block; font-family: Rubik;font-weight: 600;font-size: 25px; color: #fff;text-align: center;width: 192px;height: 54px;background:  no-repeat 50% / cover;}
+    a:hover, a:focus{color: $lYellow;}
+    a + a{margin-top: 5px;}
+    .prev{
+        @include transform(rotate(3deg));
+        background-image: url("../images/common/btn_prevpage.svg");width: 208px;
+        p{padding-left: 10px;}
+    }
+    .current{background-image: url("../images/common/btn_currentpage.svg");color: $lYellow;}
+    .next{
+        p{@include transform(rotate(-3deg));}
+        background-image: url("../images/common/btn_nextpage.svg");
+    }
+    .all_menu{background-image: url("../images/common/btn_allmenu.svg")}
+}
+.speech_bubble{
+    @include flex;
+    @include justify-content;
+    position: relative;width: 100%;height: 144px; top: 130px;text-align: center;
+    &::before{
+        @include translateX-50;
+        content:"";position: absolute;z-index: -1; width: 1000px;height: 283px;top: -70px;left: 50%;background: url("../images/common/speechBubble.png") no-repeat 50%;
+    }
+    &::after{
+        @include animation(move_down 1.5s infinite forwards);
+        content: "";position: absolute;width: 66px;height: 37px;bottom: -75px;left: 48%; background: url("../images/common/ico_down.svg");
+    }
+}
+.moveani{
+    position: absolute;z-index: -5; width: 100%;height: 100vh;overflow: hidden;
+    .cloud1, .cloud2, .cloud3{
+        @include animation(move_cloud linear 0s infinite forwards);background: no-repeat 50% / cover;
+        position: absolute;z-index: -5;
+    }
+    .cloud1{
+      @include animation-duration(40s);
+      top: 35px;right: -447px; width: 447px;height: 127px;background-image: url("../images/common/cloud3.svg");
+    }
+    .cloud2{
+      @include animation-duration(20s);
+      top: 100px;right: -107px;width: 531px;height: 107px;opacity: 0.5;background-image: url("../images/common/cloud2.svg");
+    }
+    .cloud3{
+      @include animation-delay(3s);
+      @include animation-duration(50s);
+      top: 220px;right: -374px;width: 374px;height: 106px;background-image: url("../images/common/cloud1.svg");
+    }
+}
+
+//keyframes
+@include keyframes(move_down) {
+    0%{transform: translateY(0);}
+    100%{transform: translateY(15px);}
+}
+@include keyframes(move_cloud){
+    0%{right: -20%;}
+    100%{right: 100%;}
+  }
+  @include keyframes(move_water) {
+    0%{transform: translateY(0);opacity: 1;}
+    30%{transform: translateY(3px);opacity: 0.5;}
+    100%{transform: translateY(5px);opacity: 0;}
+  }
+  
+
+//skill
+.skill{position: relative; width: 100%;height: 1000vh;}
+.sticky{
+    @include sticky;
+    height: 100vh;top: 0;
+    background: url(../images/common/bg.svg) no-repeat 50% / cover;width: 100%;height: 100vh;
+}
+.tree_wrap{position: relative;height: 100%;}
+.tree_wrap {
+  //스티키 자식들 공통
+  .seed, .sprout, .small_tree, .big_tree{position: absolute;top: 0;left: 0;width: 100%;height: 100%;opacity: 0;transition: opacity 0.5s;}
+  .soil{        
+    @include translateX-50;
+    position: absolute;bottom: 140px;left: 50%; width: 272px;height: 59px;background: no-repeat 50% / cover;
+  }
+  .soil.grass{background-image: url("../images/skill/grass.svg");width: 772px;height: 166px;bottom: 60px;}
+  .grow{
+    @include translateX-50;
+    position: absolute;background: no-repeat 50% / cover;
+  }
+  .water{
+    position: absolute;width: 561px;height: 489px;top: 30%;
+    .can{position: absolute;width: 298px;height: 262px;top: 0; background: url("../images/skill/wateringCan.svg");}
+    .drop{position: absolute;width: 150px;height: 70%;}
+    .drop1, .drop2{
+      @include animation(move_water 2.5s infinite forwards);
+      position: absolute;background: no-repeat 50%;width: 60px;height: 70px;
+    }
+    .drop1{
+      background-image: url("../images/skill/waterdrop.svg");position: absolute; bottom: 33%;left: 50%;
+      &::before, &::after{content: "";position: absolute;width: 60px;height: 70px;background: url("../images/skill/waterdrop.svg") no-repeat 50%;}
+      &::before{
+        @include transform(scale(0.8) rotate(10deg));bottom: -55px;left: -34px;
+      }
+      &::after{
+        @include transform(scale(0.7) rotate(-27deg));bottom: -68px;right: -14px;
+      }
+    }
+    .drop2{
+      @include animation-delay(0.2s);
+      background-image: url("../images/skill/waterdrop2.svg");
+      @include transform(rotate(-30deg));
+      position: absolute; bottom: 0;left: 51%;
+      &::before{
+        @include transform(rotate(-5deg));
+        content: "";position: absolute;width: 60px;height: 70px;bottom: 8px;left: -40px;background: url("../images/skill/waterdrop3.svg") no-repeat 50%;
+      }
+    }
+  }
+  .water.right{
+    left: 40%;
+    .can{right: 0;}
+    .drop{
+      bottom: 117px;left: 22%;
+    }
+  }
+  .water.left{
+    left: 25%;
+    .can{
+      @include transform(rotateY(180deg));
+      left: 0;
+    }
+    .drop{
+      @include transform(rotate(-40deg));
+      left: 38%;bottom: 80px;
+    }
+
+  }
+  
+  //seed
+  .seed {
+    .plant{
+      position: absolute;width: 44px;height: 59px;background: url(../images/skill/seed.svg);z-index: 300;
+      &.plant1{bottom: 300px;left: 50%;}
+      &.plant2{bottom: 183px;left: 49%;}
+      &.plant3{bottom: 163px;left: 51%;}
+      &.plant1::before, &.plant1::after, &.plant2::before, &.plant2::after, &.plant3::before, &.plant3::after{content: "";position: absolute;width: 44px;height: 59px;background: url(../images/skill/seed.svg);}
+      &.plant1::before, &.plant2::before{
+          @include transform(rotate(180deg));
+          right: -44px;top: -50%;
+      }
+      &.plant1::after, &.plant2::after{right: -22px;top: -93px;}
+      &.plant3::before{
+          @include transform(rotate(180deg));
+          left: -35px;top: 0;
+      }
+      &.plant3::after{
+          @include transform(rotate(-45deg));
+          left: -70px;top: 0;
+      }
+    }
+    .soil{
+      background-image: url("../images/skill/soil.svg");
+    }
+  }
+
+  //sprout
+  .sprout{
+    .grow{
+      bottom: 185px;left: 50%;
+      &.grow1{background-image: url("../images/skill/grow1.svg");width: 91px;height: 107px;}
+      &.grow2{background-image: url("../images/skill/grow2.svg");width: 93px;height: 197px;}
+    }
+    .soil{background-image: url("../images/skill/soil2.svg");}
+  }
+
+  //small_tree
+  .small_tree{
+    .grow{
+      bottom: 120px;left: 50%;z-index: 100;
+      &.grow3{background-image: url("../images/skill/smalltree.svg");width: 204px;height: 265px;}
+      &.grow4{background-image: url("../images/skill/smalltree2.svg");width: 351px;height: 477px;}
+    }
+    .water{z-index: 100;}
+  }
+
+  //big_tree
+  .big_tree{
+    .grow{
+      bottom: 80px;left: 50%;z-index: 100;
+      &.grow5{background-image: url("../images/skill/bigtree.svg");width: 781px;height: 857px;}
+    }
+    .soil.grass{bottom: 20px;}
+  }
+}
+
+ .tree_wrap > div.on{opacity: 1;}
+
