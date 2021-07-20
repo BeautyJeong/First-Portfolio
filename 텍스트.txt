@@ -29,3 +29,14 @@ All menu
 
 더 무성한 나무로 키우기 위해
 앞으로도 화이팅-!
+
+HTML
+CSS
+JS
+JQuery
+SASS
+Photoshop
+XD
+Zeplin
+VSCode
+GitHub

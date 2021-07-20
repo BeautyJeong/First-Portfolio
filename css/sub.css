@@ -191,6 +191,7 @@
   position: sticky;
   height: 100vh;
   top: 0;
+  overflow: hidden;
   background: url(../images/common/bg.svg) no-repeat 50%/cover;
   width: 100%;
   height: 100vh; }
@@ -397,6 +398,30 @@
     height: 857px; }
 .tree_wrap .big_tree .soil.grass {
   bottom: 20px; }
+.tree_wrap .big_tree .speech_bubble {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: 800px;
+  height: 144px;
+  top: 77%;
+  right: -57%;
+  z-index: 200; }
+  .tree_wrap .big_tree .speech_bubble::before {
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    transform: scale(0.7);
+    z-index: -1;
+    top: -90px;
+    left: -90px; }
+  .tree_wrap .big_tree .speech_bubble::after {
+    bottom: 3px; }
+.tree_wrap .last .speech_bubble::after {
+  display: none; }
 
 .tree_wrap > div.on {
   opacity: 1; }

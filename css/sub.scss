@@ -73,7 +73,7 @@
 .skill{position: relative; width: 100%;height: 1000vh;}
 .sticky{
     @include sticky;
-    height: 100vh;top: 0;
+    height: 100vh;top: 0;overflow: hidden;
     background: url(../images/common/bg.svg) no-repeat 50% / cover;width: 100%;height: 100vh;
 }
 .tree_wrap{position: relative;height: 100%;}
@@ -192,6 +192,22 @@
       &.grow5{background-image: url("../images/skill/bigtree.svg");width: 781px;height: 857px;}
     }
     .soil.grass{bottom: 20px;}
+    .speech_bubble{
+      @include flex;
+      @include justify-content;
+      width: 800px;height: 144px; top: 77%;right: -57%;z-index: 200;
+      &::before{
+        @include transform(scale(0.7));
+          z-index: -1;top: -90px; left: -90px;
+      }
+      &::after{
+          bottom: 3px;
+      }
+    }
+  
+  }
+  .last{
+    .speech_bubble::after{display: none;}
   }
 }
 
