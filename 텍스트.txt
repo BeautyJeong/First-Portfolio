@@ -5,7 +5,7 @@ Skill
 Project
 All menu
 
-=====skill=====
+Skill=====
 전에 스마트 스토어 제품 상세페이지를 구상한 적이 있었어요. 
 이 때 포토샵을 처음 접해보았고 많이 쓰인다는 것을 알게 되었죠. 
 
@@ -40,3 +40,16 @@ XD
 Zeplin
 VSCode
 GitHub
+
+Contact=====
+텃밭주인 정뷰티입니다-!
+제 과일을 계속 맛보고 싶으시다구요!?
+연락주세요!
+
+click!
+
+이메일: wjdqbxl@gmail.com
+
+깃허브: github.com/BeautyJeong
+
+닫기

@@ -2,6 +2,7 @@
 @import "_var", "_mixin";
 
 //sub common
+#wrap{background: url(../images/common/bg.svg) no-repeat 50% / cover;width: 100%;height: 100vh;}
 #btn{
     position: fixed;width: 230px;height: 314px;bottom: 25px;left: 80px;z-index: 600;
     a{display: block; font-family: Rubik;font-weight: 600;font-size: 25px; color: #fff;text-align: center;width: 192px;height: 54px;background:  no-repeat 50% / cover;}
@@ -22,55 +23,65 @@
 .speech_bubble{
     @include flex;
     @include justify-content;
-    position: relative;width: 100%;height: 144px; top: 130px;text-align: center;
-    &::before{
-        @include translateX-50;
-        content:"";position: absolute;z-index: -1; width: 1000px;height: 283px;top: -70px;left: 50%;background: url("../images/common/speechBubble.png") no-repeat 50%;
-    }
+    @include align-items;
+    position: relative;width: 1000px;height: 283px;margin: 70px auto; text-align: center;background: url("../images/common/speechBubble.png") no-repeat 50%;
     &::after{
         @include animation(move_down 1.5s infinite forwards);
-        content: "";position: absolute;width: 66px;height: 37px;bottom: -75px;left: 48%; background: url("../images/common/ico_down.svg");
+        content: "";position: absolute;width: 66px;height: 37px;bottom: 9px;left: 48%; background: url("../images/common/ico_down.svg");
     }
 }
 .moveani{
     position: absolute;z-index: -5; width: 100%;height: 100vh;overflow: hidden;
+
     .cloud1, .cloud2, .cloud3{
-        @include animation(move_cloud linear 0s infinite forwards);background: no-repeat 50% / cover;
-        position: absolute;z-index: -5;
+      @include animation(move_cloud linear 60s infinite);
+      position: absolute;top: 0;left: 0; width: 100%;height: 100%; background: no-repeat 50% / cover;
+      &::before{content: "";position: absolute;}
     }
-    .cloud1{
-      @include animation-duration(40s);
-      top: 35px;right: -447px; width: 447px;height: 127px;background-image: url("../images/common/cloud3.svg");
-    }
+    .cloud3{@include animation(move_cloud_back linear 80s infinite);}
+    .cloud1::before{top: 5%;left: 0;width: 374px;height: 106px;background-image: url("../images/common/cloud1.svg");}
     .cloud2{
-      @include animation-duration(20s);
-      top: 100px;right: -107px;width: 531px;height: 107px;opacity: 0.5;background-image: url("../images/common/cloud2.svg");
+      @include animation-duration(85s);
+      &::before{top: 19%;width: 531px;height: 107px;background-image: url("../images/common/cloud2.svg");}
     }
-    .cloud3{
-      @include animation-delay(3s);
-      @include animation-duration(50s);
-      top: 220px;right: -374px;width: 374px;height: 106px;background-image: url("../images/common/cloud1.svg");
+    .cloud3::before{
+      transform: scale(0.7);
+      top: 32%;right: 0;width: 447px;height: 127px;opacity: 0.5;background-image: url("../images/common/cloud3.svg");
     }
 }
-
+.click{
+  @include flex;
+  @include justify-content;
+  @include align-items;
+  display: block; width: 130px;height: 48px;background: url("../images/common/btn_click.svg") no-repeat 50%;font-size: 25px;text-align: center;
+}
 //keyframes
+@include keyframes(move_cloud){
+  0%{transform: translate(-470px);}
+  100%{transform: translate(100%);}
+}
+@include keyframes(move_cloud_back){
+  0%{transform: translate(300px);}
+  100%{transform: translate(-100%);}
+}
+
 @include keyframes(move_down) {
     0%{transform: translateY(0);}
     100%{transform: translateY(15px);}
 }
-@include keyframes(move_cloud){
-    0%{right: -20%;}
-    100%{right: 100%;}
-  }
-  @include keyframes(move_water) {
+@include keyframes(move_water) {
     0%{transform: translateY(0);opacity: 1;}
     30%{transform: translateY(3px);opacity: 0.5;}
     100%{transform: translateY(5px);opacity: 0;}
-  }
-  
+}
+@include keyframes(swing) {
+    0%{transform: rotate(5deg);}
+    100%{transform: rotate(-5deg);}
+}
 
-//skill
-.skill{position: relative; width: 100%;height: 1000vh;}
+
+//skill=====
+.skill{position: relative; width: 100%;height: 1100vh;}
 .sticky{
     @include sticky;
     height: 100vh;top: 0;overflow: hidden;
@@ -79,7 +90,7 @@
 .tree_wrap{position: relative;height: 100%;}
 .tree_wrap {
   //스티키 자식들 공통
-  .seed, .sprout, .small_tree, .big_tree{position: absolute;top: 0;left: 0;width: 100%;height: 100%;opacity: 0;transition: opacity 0.5s;}
+  .intro, .seed, .sprout, .small_tree, .big_tree{position: absolute;top: 0;left: 0;width: 100%;height: 100%;opacity: 0;transition: opacity 0.5s;}
   .soil{        
     @include translateX-50;
     position: absolute;bottom: 140px;left: 50%; width: 272px;height: 59px;background: no-repeat 50% / cover;
@@ -187,29 +198,70 @@
 
   //big_tree
   .big_tree{
+    z-index: 0;
     .grow{
+      @include flex;
+      @include justify-content(space-between);
       bottom: 80px;left: 50%;z-index: 100;
       &.grow5{background-image: url("../images/skill/bigtree.svg");width: 781px;height: 857px;}
+      .apple, .orange{
+        position: relative; width: 50%;
+        > div{
+          @include flex;
+          @include flex-wrap;
+          @include justify-content;
+          @include align-items;
+          @include animation(swing cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite alternate);
+          position: absolute;background: no-repeat;padding-top: 27px;font-family: Rubik;font-weight: 600;line-height: 1;text-align: center;
+        }
+        .apple1, .apple2, .apple3, .orange1, .orange2, .orange3{@include animation-duration(1.3s);}
+        .apple4, .apple5, .orange4, .orange5{@include animation-duration(1.5s);}
+      }
+      .apple{
+        > div{width: 125px;height: 173px;background-image: url("../images/skill/apple.svg");color: #fff;}
+        .apple1{top: 23%;left: 10%;}
+        .apple2{top: 50%;left: 0;}
+        .apple3{bottom: 10%;right: 20%;}
+        .apple4{top: 40%;right: 15%;}
+        .apple5{top: 0;right: 10%;}
+      }
+      .orange{
+        > div{width: 134px;height: 185px;background-image: url("../images/skill/orange.svg");color: #473c3c;}
+        .orange1{top: 32%;right: -10%;}
+        .orange2{top: 0;left: 0;}
+        .orange3{top: 36%;left: 24%;}
+        .orange4{bottom: 17%;right: 25%;}
+        .orange5{top: 11%;right: 23%;}
+      }
     }
     .soil.grass{bottom: 20px;}
     .speech_bubble{
-      @include flex;
-      @include justify-content;
-      width: 800px;height: 144px; top: 77%;right: -57%;z-index: 200;
-      &::before{
-        @include transform(scale(0.7));
-          z-index: -1;top: -90px; left: -90px;
-      }
+      @include transform(scale(0.7));
+      top: 59%;right: -30%;z-index: 200;font-size: 39px;
       &::after{
           bottom: 3px;
       }
     }
-  
   }
-  .last{
-    .speech_bubble::after{display: none;}
-  }
+  .last .speech_bubble::after {display: none;}
 }
-
  .tree_wrap > div.on{opacity: 1;}
 
+//contact=====
+.moveani{z-index: 0;}
+.txt_contact{
+  @include flex;
+  @include justify-content;
+  @include align-items;
+  width: 100%;height: 100%;
+  p{
+    @include flex;
+    @include flex-wrap;
+    @include justify-content;
+    @include align-items;
+    position: absolute;z-index: 1; width: 630px;height: 358px;background: url("../images/contact/board.svg") no-repeat 50% / cover;color: #fff;
+    &::before{content: "";position: absolute;z-index: 0; top: -10%;left: 30%; width: 294px;height: 602px;background: url("../images/contact/stick.svg") no-repeat 50% / cover;}
+    .txt_yellow{color: #ffce00;}
+  }
+}
+#modal{display: none;}
