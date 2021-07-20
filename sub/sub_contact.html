@@ -26,6 +26,7 @@
     </div>
 
     <div class="txt_contact">
+      <div class="board"></div>
       <p>
         텃밭주인 <span class="txt_yellow">정뷰티</span>입니다-!<br> 
         제 과일을 계속 맛보고 싶으시다구요!?<br>
@@ -53,9 +54,17 @@
 
   <!-- modal 내용 -->
   <div id="modal" role="dialog" aria-modal="true" aria-labelledby="mdTit">
-    <h3 class="mdTit">뷰티의 연락처</h3>
-    <p>이메일:<a href="">wjdqbxl@gmail.com</a></p>
-    <p>깃허브:<a href="github.com/BeautyJeong">github.com/BeautyJeong</a></p>
+    <div class="bg">
+      <h3 class="mdTit blind">뷰티의 연락처</h3><!-- 접근성을 위해 제목추가 -->
+      <div class="photo_frame">
+        <div class="photo"></div>
+      </div>
+      <div class="address">
+        <p>이메일: <a href="mailto: wjdqbxl@gmail.com" target="_blank">wjdqbxl@gmail.com</a></p>
+        <p>깃허브: <a href="https://github.com/BeautyJeong" target="_blank">github.com/BeautyJeong</a></p>
+      </div>
+      <button type="button" class="btn_close" aria-label="닫기"></button>
+    </div>
   </div>
 </body>
 

@@ -60,9 +60,23 @@ img {
   vertical-align: top;
   border: none; }
 
+button {
+  background: none;
+  border: none;
+  cursor: pointer; }
+
 a:link, a:visited, a:hover, a:active {
   text-decoration: none;
   color: inherit; }
+
+.blind {
+  width: 1px;
+  height: 1px;
+  border: none;
+  overflow: hidden;
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%); }
 
 body {
   font-family: "신디나루", "굴림", "NotoSansKR";

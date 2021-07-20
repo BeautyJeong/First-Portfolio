@@ -81,10 +81,11 @@ body, p, ul, h1, h2, h3, h4, h5, h6{margin: 0;padding: 0;}
 ul{list-style: none;}
 h1, h2, h3, h4, h5, h6{font-size: 100%;}
 img{vertical-align: top;border: none;}
+button{background: none;border: none;cursor: pointer;}
 a:link, a:visited, a:hover, a:active{text-decoration: none;color: inherit;}
 
 //common class
-.btn_click{}
+.blind{width: 1px;height: 1px;border: none;overflow: hidden;position: absolute;clip: rect(1px, 1px, 1px, 1px);clip-path: inset(50%);}
 
 
 body{font-family: "신디나루", "굴림", "NotoSansKR";font-weight: 600;color: $dBrown;font-size: 30px;line-height: 2;word-break: keep-all;}
