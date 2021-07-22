@@ -3,14 +3,14 @@
   width: 100%;
   height: 100vh; }
 
-#btn {
+#btnMenu {
   position: fixed;
   width: 230px;
   height: 314px;
   bottom: 25px;
   left: 80px;
   z-index: 600; }
-  #btn a {
+  #btnMenu a {
     display: block;
     font-family: Rubik;
     font-weight: 600;
@@ -20,28 +20,28 @@
     width: 192px;
     height: 54px;
     background: no-repeat 50% / cover; }
-  #btn a:hover, #btn a:focus {
+  #btnMenu a:hover, #btnMenu a:focus {
     color: #FFCE00; }
-  #btn a + a {
+  #btnMenu a + a {
     margin-top: 5px; }
-  #btn .prev {
+  #btnMenu .prev {
     -webkit-transform: rotate(3deg);
     -moz-transform: rotate(3deg);
     transform: rotate(3deg);
     background-image: url("../images/common/btn_prevpage.svg");
     width: 208px; }
-    #btn .prev p {
+    #btnMenu .prev p {
       padding-left: 10px; }
-  #btn .current {
+  #btnMenu .current {
     background-image: url("../images/common/btn_currentpage.svg");
     color: #FFCE00; }
-  #btn .next {
+  #btnMenu .next {
     background-image: url("../images/common/btn_nextpage.svg"); }
-    #btn .next p {
+    #btnMenu .next p {
       -webkit-transform: rotate(-3deg);
       -moz-transform: rotate(-3deg);
       transform: rotate(-3deg); }
-  #btn .all_menu {
+  #btnMenu .all_menu {
     background-image: url("../images/common/btn_allmenu.svg"); }
 
 .speech_bubble {
@@ -228,6 +228,21 @@
     transform: rotate(5deg); }
   100% {
     transform: rotate(-5deg); } }
+@-webkit-keyframes rotateY {
+  0% {
+    transform: rotateY(0); }
+  100% {
+    transform: rotateY(360deg); } }
+@-moz-keyframes rotateY {
+  0% {
+    transform: rotateY(0); }
+  100% {
+    transform: rotateY(360deg); } }
+@keyframes rotateY {
+  0% {
+    transform: rotateY(0); }
+  100% {
+    transform: rotateY(360deg); } }
 .skill {
   position: relative;
   width: 100%;
@@ -546,7 +561,7 @@
 .moveani {
   z-index: 0; }
 
-.txt_contact {
+#cnt_contact {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-box;
@@ -559,7 +574,7 @@
   position: relative;
   width: 100%;
   height: 100%; }
-  .txt_contact::before {
+  #cnt_contact::before {
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -571,13 +586,13 @@
     width: 294px;
     height: 602px;
     background: url("../images/contact/stick.svg") no-repeat 50%/cover; }
-  .txt_contact .board {
+  #cnt_contact .board {
     position: relative;
     z-index: 100;
     width: 630px;
     height: 358px;
     background: url("../images/contact/board.svg") no-repeat 50%/cover; }
-  .txt_contact p {
+  #cnt_contact p {
     -webkit-transform: translateX(-50%);
     -moz-transform: translateX(-50%);
     transform: translateX(-50%);
@@ -587,9 +602,9 @@
     left: 50%;
     text-align: center;
     color: #fff; }
-    .txt_contact p .txt_yellow {
+    #cnt_contact p .txt_yellow {
       color: #FFCE00; }
-  .txt_contact .click {
+  #cnt_contact .click {
     position: absolute;
     z-index: 300;
     bottom: 38%;
@@ -599,119 +614,276 @@
   position: fixed;
   z-index: 1000; }
 
-#modal .bg {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-align-items: center;
-  align-items: center;
+#dim {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: none; }
+
+#modal {
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  -webkit-animation: rotateY 3s 3 forwards;
-  -moz-animation: rotateY 3s 3 forwards;
-  animation: rotateY 3s 3 forwards;
-  position: fixed;
+  visibility: hidden;
   z-index: 1000;
   top: 50%;
   left: 50%;
   width: 1411px;
   height: 677px;
-  background: url("../images/contact/board_big.svg");
-  backface-visibility: hidden; }
-@-webkit-keyframes rotateY {
-  0% {
-    transform: rotateY(0); }
-  50% {
-    transform: rotateY(180deg); }
-  100% {
-    transform: rotateY(0); } }
-@-moz-keyframes rotateY {
-  0% {
-    transform: rotateY(0); }
-  50% {
-    transform: rotateY(180deg); }
-  100% {
-    transform: rotateY(0); } }
-@keyframes rotateY {
-  0% {
-    transform: rotateY(0); }
-  50% {
-    transform: rotateY(180deg); }
-  100% {
-    transform: rotateY(0); } }
-#modal .photo_frame {
-  width: 280px;
-  height: 287px;
-  margin-left: 153px;
-  border: 10px solid #000;
-  border-radius: 30px;
-  overflow: hidden; }
-  #modal .photo_frame .photo {
-    background: url("../images/contact/me2.jpg") no-repeat 50%/cover;
-    width: 300px;
-    height: 300px; }
-#modal .address {
-  padding-left: 75px;
-  color: #fff;
-  font-size: 50px; }
-  #modal .address p {
-    position: relative; }
-    #modal .address p::before {
-      -webkit-transform: translateY(-50%);
-      -moz-transform: translateY(-50%);
-      transform: translateY(-50%);
+  perspective: 2000px; }
+  #modal .bg, #modal .back {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    background: url("../images/contact/board_big.svg");
+    height: 100%; }
+  #modal .bg.on, #modal .back.on {
+    -webkit-animation: rotateY 1s 1 forwards;
+    -moz-animation: rotateY 1s 1 forwards;
+    animation: rotateY 1s 1 forwards; }
+  #modal .bg {
+    position: relative;
+    z-index: 950;
+    backface-visibility: hidden; }
+  #modal .back {
+    position: absolute;
+    z-index: 900;
+    top: 0;
+    left: 0;
+    width: 1411px;
+    height: 677px; }
+  #modal .photo_frame {
+    width: 280px;
+    height: 287px;
+    margin-left: 153px;
+    border: 10px solid #000;
+    border-radius: 30px;
+    overflow: hidden; }
+    #modal .photo_frame .photo {
+      background: url("../images/contact/me2.jpg") no-repeat 50%/cover;
+      width: 300px;
+      height: 300px; }
+  #modal .address {
+    padding-left: 75px;
+    color: #fff;
+    font-size: 50px; }
+    #modal .address p {
+      position: relative; }
+      #modal .address p::before {
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        transform: translateY(-50%);
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        top: 50%;
+        left: -50px;
+        background: #7e725c;
+        border-radius: 50%; }
+    #modal .address p + p {
+      margin-top: 100px; }
+    #modal .address a {
+      font-family: Rubik;
+      font-weight: 600;
+      transition: all 0.3s; }
+    #modal .address a:hover, #modal .address a:focus {
+      color: #FFCE00; }
+  #modal .md_btn_close {
+    position: absolute;
+    top: 8%;
+    right: 4%;
+    width: 80px;
+    height: 80px;
+    background: #7e725c;
+    border-radius: 50%; }
+    #modal .md_btn_close::before, #modal .md_btn_close::after {
       content: "";
       position: absolute;
-      width: 30px;
-      height: 30px;
-      top: 50%;
-      left: -50px;
-      background: #7e725c;
-      border-radius: 50%; }
-  #modal .address p + p {
-    margin-top: 100px; }
-  #modal .address a {
-    font-family: Rubik;
-    font-weight: 600;
-    transition: all 0.3s; }
-  #modal .address a:hover, #modal .address a:focus {
-    color: #FFCE00; }
-#modal .btn_close {
-  position: absolute;
-  top: 8%;
-  right: 4%;
-  width: 80px;
-  height: 80px;
-  background: #7e725c;
-  border-radius: 50%; }
-  #modal .btn_close::before, #modal .btn_close::after {
-    content: "";
-    position: absolute;
-    top: 35px;
-    left: 11px;
-    width: 60px;
-    height: 8px;
-    background: #fff;
-    border-radius: 23px;
-    transition: transform 1s; }
-  #modal .btn_close::before {
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    transform: rotate(45deg); }
-  #modal .btn_close::after {
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    transform: rotate(-45deg); }
-  #modal .btn_close:hover::before, #modal .btn_close:focus::before {
-    -webkit-transform: rotate(225deg);
-    -moz-transform: rotate(225deg);
-    transform: rotate(225deg); }
-  #modal .btn_close:hover::after, #modal .btn_close:focus::after {
-    -webkit-transform: rotate(-225deg);
-    -moz-transform: rotate(-225deg);
-    transform: rotate(-225deg); }
+      top: 35px;
+      left: 11px;
+      width: 60px;
+      height: 8px;
+      background: #fff;
+      border-radius: 23px;
+      transition: transform 1s; }
+    #modal .md_btn_close::before {
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      transform: rotate(45deg); }
+    #modal .md_btn_close::after {
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      transform: rotate(-45deg); }
+    #modal .md_btn_close:hover::before, #modal .md_btn_close:focus::before {
+      -webkit-transform: rotate(225deg);
+      -moz-transform: rotate(225deg);
+      transform: rotate(225deg); }
+    #modal .md_btn_close:hover::after, #modal .md_btn_close:focus::after {
+      -webkit-transform: rotate(-225deg);
+      -moz-transform: rotate(-225deg);
+      transform: rotate(-225deg); }
+
+.project {
+  overflow: hidden; }
+  .project .speech_bubble::after {
+    display: none; }
+  .project .wrap_project {
+    position: relative;
+    z-index: 100;
+    width: 1035px;
+    height: 370px;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-align-items: center;
+    align-items: center; }
+  .project .twosome, .project .ikea {
+    position: relative; }
+    .project .twosome::before, .project .twosome::after, .project .ikea::before, .project .ikea::after {
+      content: "";
+      position: absolute;
+      top: -33%;
+      z-index: 1;
+      width: 139px;
+      height: 170px; }
+    .project .twosome .fruit, .project .twosome .basket, .project .twosome .board, .project .ikea .fruit, .project .ikea .basket, .project .ikea .board {
+      background: no-repeat 50% / cover; }
+    .project .twosome .fruit, .project .ikea .fruit {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      font-size: 25px;
+      font-family: Rubik;
+      font-weight: 600; }
+      .project .twosome .fruit .apple, .project .twosome .fruit .orange, .project .ikea .fruit .apple, .project .ikea .fruit .orange {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-animation: fruit_move cubic-bezier(0.74, 0.01, 0.5, 1.35) 4s infinite forwards;
+        -moz-animation: fruit_move cubic-bezier(0.74, 0.01, 0.5, 1.35) 4s infinite forwards;
+        animation: fruit_move cubic-bezier(0.74, 0.01, 0.5, 1.35) 4s infinite forwards;
+        position: absolute;
+        top: -106px;
+        background: no-repeat 50% / cover;
+        width: 139px;
+        height: 170px;
+        text-align: center; }
+@-webkit-keyframes fruit_move {
+  0% {
+    transform: translateY(0); }
+  50% {
+    transform: translateY(-20px); }
+  100% {
+    transform: translateY(0); } }
+@-moz-keyframes fruit_move {
+  0% {
+    transform: translateY(0); }
+  50% {
+    transform: translateY(-20px); }
+  100% {
+    transform: translateY(0); } }
+@keyframes fruit_move {
+  0% {
+    transform: translateY(0); }
+  50% {
+    transform: translateY(-20px); }
+  100% {
+    transform: translateY(0); } }
+      .project .twosome .fruit .apple, .project .ikea .fruit .apple {
+        background-image: url("../images/project/apple.svg");
+        color: #fff; }
+      .project .twosome .fruit .apple.apple1, .project .ikea .fruit .apple.apple1 {
+        left: 35%;
+        z-index: 5; }
+      .project .twosome .fruit .orange, .project .ikea .fruit .orange {
+        background-image: url("../images/project/orange.svg");
+        color: #473c3c; }
+    .project .twosome .basket, .project .ikea .basket {
+      position: relative;
+      z-index: 100;
+      background-image: url("../images/project/basket.svg");
+      width: 465px;
+      height: 218px; }
+    .project .twosome .board, .project .ikea .board {
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      transform: translateX(-50%);
+      position: absolute;
+      z-index: 200;
+      top: 9%;
+      left: 50%;
+      text-align: center;
+      background-image: url("../images/project/board.svg");
+      width: 295px;
+      height: 156px; }
+      .project .twosome .board .txt_project, .project .ikea .board .txt_project {
+        position: relative;
+        color: #fff;
+        margin-top: 18px; }
+        .project .twosome .board .txt_project::before, .project .twosome .board .txt_project::after, .project .ikea .board .txt_project::before, .project .ikea .board .txt_project::after {
+          -webkit-transform: translateY(-50%);
+          -moz-transform: translateY(-50%);
+          transform: translateY(-50%);
+          content: "";
+          position: absolute;
+          top: 50%;
+          width: 19px;
+          height: 19px;
+          background: #7e725c;
+          border-radius: 50%; }
+        .project .twosome .board .txt_project::before, .project .ikea .board .txt_project::before {
+          left: 5%; }
+        .project .twosome .board .txt_project::after, .project .ikea .board .txt_project::after {
+          right: 5%; }
+      .project .twosome .board .click, .project .ikea .board .click {
+        margin: 0 auto; }
+  .project .twosome::before {
+    left: 20%;
+    background: url("../images/project/orange.svg"); }
+  .project .twosome::after {
+    right: 14%;
+    background: url("../images/project/apple.svg"); }
+  .project .twosome .fruit .apple.apple2 {
+    -webkit-animation-delay: 2s;
+    -moz-animation-delay: 2s;
+    animation-delay: 2s;
+    left: 0; }
+  .project .twosome .fruit .orange {
+    -webkit-animation-delay: 2s;
+    -moz-animation-delay: 2s;
+    animation-delay: 2s;
+    right: 0; }
+  .project .ikea::before {
+    left: 16%;
+    background: url("../images/project/darkapple.svg"); }
+  .project .ikea::after {
+    right: 19%;
+    background: url("../images/project/darkapple.svg"); }
+  .project .ikea .fruit .apple1 {
+    -webkit-animation-delay: 2s;
+    -moz-animation-delay: 2s;
+    animation-delay: 2s; }
+  .project .ikea .fruit .apple.apple2 {
+    right: 0; }
+  .project .ikea .fruit .orange {
+    left: 0; }
 
 /*# sourceMappingURL=sub.css.map */

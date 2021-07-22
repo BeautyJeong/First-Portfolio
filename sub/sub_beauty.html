@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> About Beauty : Beauty's Portfolio </title>
+  <title> About Beauty | Beauty's Portfolio </title>
   <link rel="icon" href="../images/favicon16.ico">
   <link rel="icon" href="../images/favicon32.ico">
   <link rel="shortcut icon" href="../images/favicon96.ico"><!-- 안드로이드 -->
@@ -14,31 +15,58 @@
   <link rel="stylesheet" href="../css/sub.css">
   <script src="../js/jquery-1.12.4.min.js"></script>
   <script src="../js/stickyfill.min.js"></script>
-  <script src="../js/sub.js"></script>
+  <script src="../js/sticky.js"></script>
 </head>
+
 <body>
   <div id="wrap">
-    <div class="moveani">
-      <div class="cloud1"></div>
-      <div class="cloud2"></div>
-      <div class="cloud3"></div>
-    </div>
+    <h2 class="blind">뷰티의 자기소개</h2>
+    <div class="beauty">
+      <div class="sticky">
+        <!-- fixed -->
+        <div class="moveani">
+          <div class="cloud1"></div>
+          <div class="cloud2"></div>
+          <div class="cloud3"></div>
+        </div>
+        <div class="mountain"></div>
+        <div class="pond"></div>
 
-    <div id="btn">
-      <a href="sub_contact.html" class="prev">
-        <P>Contact</P>
-      </a>
-      <a href="sub_beauty.html" class="current">
-        <P>About Beauty</P>
-      </a>
-      <a href="sub_skill.html" class="next">
-        <P>Skill</P>
-      </a>
-      <a href="" class="all_menu">
-        <P>All menu</P>
-      </a>
+        <section id="cnt_beauty">
+          <div class="cnt1">
+            <p class="txtbox">
+              안녕하세요!
+              저는 <span class="txt_big">정뷰티</span>입니다.
+              <span class="txt_yellow">25살</span>이고 올해 8월에 가천대학교
+              졸업예정이에요.
+              전공은 <span class="txt_yellow">산업경영공학과</span>이고
+              <span class="txt_yellow">동양어문(중국어)학과</span>를
+              복수전공했어요.
+            </p>
+            <div class="me"></div>
+            <div class="dog"></div>
+          </div>
+        </section>
+
+        <a href="../index.html" class="home">HOME</a>
+        <div id="btnMenu">
+          <a href="sub_contact.html" class="prev">
+            <P>Contact</P>
+          </a>
+          <a href="sub_beauty.html" class="current">
+            <P>About Beauty</P>
+          </a>
+          <a href="sub_skill.html" class="next">
+            <P>Skill</P>
+          </a>
+          <a href="" class="all_menu">
+            <P>All menu</P>
+          </a>
+        </div>
+      </div>
     </div>
 
   </div>
 </body>
+
 </html>
