@@ -7,7 +7,7 @@ $(document).ready(function() {
 
     $(window).on('scroll', function () {
         const scrollY = $(this).scrollTop();
-        $('.tree_wrap > div').each(function (idx) {
+        $('.sticky_cnt > div').each(function (idx) {
             if(scrollY > stickyY + winHei * idx) $(this).addClass('on').siblings().removeClass('on');
         });
     });
