@@ -44,6 +44,7 @@ $(document).ready(function () {
         $dim.stop().fadeOut(function () {
           $(this).remove(); //dim이 여러개 생기는 것 방지
         });
+        $modalBg.removeClass('on').next().removeClass('on');
         $modalBg.parent().css('visibility', 'hidden').siblings().removeAttr('aria-hidden inert');
         $clickBtn.focus();
       });
