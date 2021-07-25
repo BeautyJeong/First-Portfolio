@@ -1062,4 +1062,48 @@
       -moz-animation: wink 3s infinite;
       animation: wink 3s infinite; }
 
+.intro {
+  position: relative;
+  z-index: 0;
+  background: linear-gradient(#282A64, #330428 90%);
+  width: 100%;
+  height: 100vh; }
+  .intro .bg {
+    position: relative;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; }
+    .intro .bg .mountain1, .intro .bg .mountain2, .intro .bg .mountain3 {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background: no-repeat 50% / cover;
+      width: 100%; }
+    .intro .bg .mountain1 {
+      background: url("../images/project/mountain1.svg");
+      height: 900px;
+      bottom: 0; }
+    .intro .bg .mountain2 {
+      background: url("../images/project/mountain2.svg");
+      height: 712px; }
+    .intro .bg .mountain3 {
+      background: url("../images/project/mountain3.svg");
+      height: 700px; }
+  .intro .txt {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+    color: #EB981B;
+    text-align: center;
+    padding-top: 25%; }
+
 /*# sourceMappingURL=sub.css.map */

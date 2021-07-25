@@ -44,7 +44,7 @@ $(document).ready(function() {
   });
 
   //돋보기
-  const boxPosX = $('.go_link').offset().left;
+  /* const boxPosX = $('.go_link').offset().left;
   const boxPosY = $('.go_link').offset().top;
   const circleHalfW = $('.go_link .circle').outerWidth() / 2;
   const circleHalfH = $('.go_link .circle').outerHeight() / 2;
@@ -56,6 +56,22 @@ $(document).ready(function() {
       const mouseY = e.pageY;
       console.log(mouseX,mouseY);
       gsap.to('.circle', {top: mouseY - boxPosY - circleHalfH, left: mouseX - boxPosX - circleHalfW, duration: 0.5});
+  }); */
+
+  $('.go_link').parent().each(function (idx) {
+    $(this).index(idx).children().on('mousemove', function (e) {
+      const boxPosX = $('.go_link').offset().left;
+      const boxPosY = $('.go_link').offset().top;
+      const circleHalfW = $('.go_link .circle').outerWidth() / 2;
+      const circleHalfH = $('.go_link .circle').outerHeight() / 2;
+      console.log(boxPosX,boxPosY);
+  
+      // 스크롤바의 이동거리를 포함하는 마우스 좌표 알아오기
+      const mouseX = e.pageX;
+      const mouseY = e.pageY;
+      console.log(mouseX,mouseY);
+      gsap.to('.circle', {top: mouseY - boxPosY - circleHalfH, left: mouseX - boxPosX - circleHalfW, duration: 0.5});
+    });
   });
 
 });
