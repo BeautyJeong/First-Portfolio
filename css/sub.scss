@@ -532,6 +532,7 @@
 //ikea=====
 .ikea_intro{
   position: relative;z-index: 0; background: linear-gradient(#282A64, #330428 90%);width: 100%;height: 100vh;
+  .home{position: absolute;}
   .bg{
     position: relative;z-index: -1; width: 100%;height: 100%;overflow: hidden;
     .mountain1, .mountain2, .mountain3{position: absolute;left: 0;bottom: 0; background: no-repeat 50% / cover;width: 100%;}
@@ -543,6 +544,75 @@
     @include flex;
     @include justify-content;
     @include align-items;
-    position: relative;z-index: 100; color: $orange;text-align: center;padding-top: 25%;
+    @include translateX-50;
+    position: absolute;z-index: 100; color: $orange;text-align: center;top: 50%;left: 50%;padding-top: 5%;
+  }
+}
+
+.introduce{
+  font-family: Tourney;font-size: 30px;font-weight: 300;line-height: 1.2; background: #1E1632;
+  section{padding: 200px 120px;}
+  h2, h3{font-family: TourneyItalic;font-weight: 300; font-size: 90px;color: $orange;line-height: 1.3;}
+  .info{
+    h2, .info_cnt{
+      @include flex;
+      @include align-items;
+    }
+    h2{@include justify-content;text-align: center;}
+  }
+  .info_cnt{
+    @include flex-wrap;
+    margin: 120px 280px;
+    li{
+      @include flex;
+      font-size: 40px;color: #bcbcbc;
+      p{font-size: 50px;color: $lYellow;}
+    }
+    li + li{padding-top: 50px;}
+    .marginLeft1{
+      margin-left: 220px;
+      p span{
+        position: relative;
+        &::after{
+          @include translateY-50;
+          content: "";position: absolute;width: 35px;height: 35px;top: 50%;left: -45px;
+        }
+      }
+      .color1{
+        margin-left: 50px;
+        &::after{background: #54565a;}
+        }
+      .color2{
+        margin-left: 80px;
+        &::after{background: #d60037;}
+        }
+    }
+    .marginLeft2{margin-left: 249px;}
+  }
+
+  .main, .sub1, .sub2{
+    @include flex;
+    @include justify-content(space-between);
+  }
+  .main{
+    position: relative;
+    .fixed{
+      position: sticky;top: 0;left: 0;
+      .part{font-family: NotoSansKR;font-weight: 500; color: #bcbcbc;line-height: 80px;}
+      .view_site{
+        display: block; width: 344px;height: 88px;border-radius: 44px;border: 3px solid #b842ac;font-size: 40px;color: #b842ac;margin-top: 293px;text-align: center;line-height: 2;transition: all 0.2s;
+        &:hover, &:focus{color: #fff;background: #b842ac;}
+      }
+    }
+
+    .screen_wrap{
+      div{margin-top: 20px;}
+    }
+
+    .screen{
+      overflow: hidden;border-radius: 34px;
+      .img1{background: url("../images/project/twosome_index.jpg") no-repeat 50% / cover;width: 1014px;height: 617px;}
+      .img2{background: url("../images/project/twosome_index.jpg") no-repeat left 10px bottom 0 / cover;width: 1014px;height: 617px;}
+    }
   }
 }
