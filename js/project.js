@@ -1,6 +1,9 @@
 $(document).ready(function () {
-  $('#notice').on('click', function () {
+  $('#twosomeNotice').on('click', function () {
     window.open('../popup/popup.html', 'popup1', 'width=700, height=300, top=300, left=500');
+  });
+  $('#ikeaNotice').on('click', function () {
+    window.open('../popup/popup2.html', 'popup2', 'width=700, height=300, top=300, left=500');
   });
 
   $(".btn_top").on('click', function () {
