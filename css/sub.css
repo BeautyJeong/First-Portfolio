@@ -1112,6 +1112,19 @@
     top: 50%;
     left: 50%;
     padding-top: 5%; }
+  .ikea_intro #notice {
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    bottom: 10%;
+    left: 50%;
+    background: #3E3653;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 20px; }
 
 .introduce {
   font-family: Tourney;
@@ -1180,6 +1193,15 @@
           background: #d60037; }
     .introduce .info_cnt .marginLeft2 {
       margin-left: 249px; }
+  .introduce .link {
+    display: block;
+    width: 344px;
+    height: 88px;
+    border-radius: 44px;
+    font-size: 40px;
+    text-align: center;
+    line-height: 2;
+    transition: all 0.2s; }
   .introduce .main, .introduce .sub1, .introduce .sub2 {
     display: -webkit-box;
     display: -moz-box;
@@ -1188,44 +1210,112 @@
     display: flex;
     -webkit-justify-content: space-between;
     justify-content: space-between; }
-  .introduce .main {
-    position: relative; }
-    .introduce .main .fixed {
+    .introduce .main .fixed, .introduce .sub1 .fixed, .introduce .sub2 .fixed {
       position: sticky;
       top: 0;
       left: 0; }
-      .introduce .main .fixed .part {
+      .introduce .main .fixed .part, .introduce .sub1 .fixed .part, .introduce .sub2 .fixed .part {
         font-family: NotoSansKR;
         font-weight: 500;
         color: #bcbcbc;
         line-height: 80px; }
-      .introduce .main .fixed .view_site {
-        display: block;
-        width: 344px;
-        height: 88px;
-        border-radius: 44px;
+      .introduce .main .fixed .view_site.link, .introduce .sub1 .fixed .view_site.link, .introduce .sub2 .fixed .view_site.link {
         border: 3px solid #b842ac;
-        font-size: 40px;
         color: #b842ac;
-        margin-top: 293px;
-        text-align: center;
-        line-height: 2;
-        transition: all 0.2s; }
-        .introduce .main .fixed .view_site:hover, .introduce .main .fixed .view_site:focus {
+        margin-top: 293px; }
+        .introduce .main .fixed .view_site.link:hover, .introduce .main .fixed .view_site.link:focus, .introduce .sub1 .fixed .view_site.link:hover, .introduce .sub1 .fixed .view_site.link:focus, .introduce .sub2 .fixed .view_site.link:hover, .introduce .sub2 .fixed .view_site.link:focus {
           color: #fff;
           background: #b842ac; }
-    .introduce .main .screen_wrap div {
-      margin-top: 20px; }
-    .introduce .main .screen {
+    .introduce .main .screen_wrap div + div, .introduce .sub1 .screen_wrap div + div, .introduce .sub2 .screen_wrap div + div {
+      margin-top: 100px; }
+    .introduce .main .screen, .introduce .sub1 .screen, .introduce .sub2 .screen {
       overflow: hidden;
       border-radius: 34px; }
-      .introduce .main .screen .img1 {
-        background: url("../images/project/twosome_index.jpg") no-repeat 50%/cover;
-        width: 1014px;
-        height: 617px; }
-      .introduce .main .screen .img2 {
-        background: url("../images/project/twosome_index.jpg") no-repeat left 10px bottom 0/cover;
-        width: 1014px;
-        height: 617px; }
+    .introduce .main .img1, .introduce .main .img2, .introduce .main .img3, .introduce .sub1 .img1, .introduce .sub1 .img2, .introduce .sub1 .img3, .introduce .sub2 .img1, .introduce .sub2 .img2, .introduce .sub2 .img3 {
+      background: no-repeat;
+      width: 1014px; }
+  .introduce .main {
+    position: relative; }
+    .introduce .main .screen .img1 {
+      background: url("../images/project/twosome_index.jpg") left 0 top 0/cover;
+      height: 700px; }
+    .introduce .main .screen .img2 {
+      background: url("../images/project/twosome_index.jpg") left 0 top 63%/cover;
+      height: 617px; }
+    .introduce .main .screen .img3 {
+      background: url("../images/project/twosome_index.jpg") left 0 bottom 0/cover;
+      height: 617px; }
+  .introduce .sub1 .screen .img1 {
+    background: url("../images/project/twosome_coffStory.jpg") left 0 top 0/cover;
+    height: 700px; }
+  .introduce .sub1 .screen .img2 {
+    background: url("../images/project/twosome_coffStory.jpg") left 0 top 63%/cover;
+    height: 617px; }
+  .introduce .sub2 .screen .img1 {
+    background: url("../images/project/twosome_menu.jpg") left 0 top 0/cover;
+    height: 700px; }
+  .introduce .sub2 .screen .img2 {
+    background: url("../images/project/twosome_menu.jpg") left 0 top 63%/cover;
+    height: 617px; }
+  .introduce .btn {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    position: relative;
+    margin: 0 auto;
+    width: 50%;
+    padding-bottom: 100px; }
+    .introduce .btn .btn_prev.link, .introduce .btn .btn_next.link {
+      border: 3px solid #EB981B;
+      color: #EB981B; }
+      .introduce .btn .btn_prev.link:hover, .introduce .btn .btn_prev.link:focus, .introduce .btn .btn_next.link:hover, .introduce .btn .btn_next.link:focus {
+        color: #fff;
+        background: #EB981B; }
+    .introduce .btn .btn_top {
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      transform: translateY(-50%);
+      position: absolute;
+      bottom: 0;
+      right: -380px;
+      background: url("../images/project/arrow_top.svg");
+      width: 39px;
+      height: 39px; }
+    .introduce .btn #btnClose {
+      position: absolute;
+      bottom: 24px;
+      right: -300px;
+      font-size: 20px;
+      color: #fff; }
+
+.bottom {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  width: 100%;
+  height: 80px;
+  line-height: 80px;
+  background: #3E3653;
+  font-size: 20px; }
+  .bottom .clock {
+    font-family: Tourney;
+    font-weight: 300;
+    background: #000;
+    color: #fff;
+    width: 50%; }
+  .bottom .copyright {
+    font-family: NotoSansKR;
+    font-weight: 400;
+    text-align: right;
+    padding-right: 70px;
+    box-sizing: border-box; }
 
 /*# sourceMappingURL=sub.css.map */
