@@ -21,6 +21,7 @@ $(document).ready(function () {
       //dim동적생성, 모달 보이기, 첫번째 요소에 포커스 강제이동
       $modalBg.parent().before('<div id="dim"></div>');
       const $dim = $('#dim');
+      //포커스 이동오류
       $dim.stop().fadeIn().next().css('visibility', 'visible').find('[data-link="first"]').focus();
 
       //닫기버튼 누르기 전까지 포커스 제어

@@ -631,7 +631,7 @@
     20%{transform: translateY(-625px);}
     40%{transform: translateY(-1250px);}
     60%{transform: translateY(-1800px);}
-    80%{transform: translateY(-2300px);}
+    80%{transform: translateY(-2160px);}
     100%{transform: translateY(0);}
   }
 
@@ -650,7 +650,7 @@
     .screen{
       .img1{
         @include animation(move_screen_long 20s ease 1s infinite backwards);
-        background-image: url("../images/project/twosome_coffStory.jpg");height: 3000px;
+        background-image: url("../images/project/twosome_coffStory.jpg");height: 2870px;
       }
       .img2{background: url("../images/project/twosome_coffStory.jpg") left 0 top 63% / cover;height: 617px;}
     }
