@@ -55,6 +55,7 @@
   -webkit-align-items: center;
   align-items: center;
   position: fixed;
+  z-index: 500;
   width: 80px;
   height: 80px;
   top: 7%;

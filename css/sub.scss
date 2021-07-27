@@ -24,7 +24,7 @@
   @include flex;
   @include justify-content;
   @include align-items;
-  position: fixed;width: 80px;height: 80px;top: 7%;left: 5%;border-radius: 50%;background: rgba(251, 229, 25, .8);box-shadow: 0px 0px 27px 20px rgba(251, 229, 25, 0.8);font-size: 25px; /* offset-x | offset-y | blur-radius | spread-radius | color */
+  position: fixed;z-index: 500; width: 80px;height: 80px;top: 7%;left: 5%;border-radius: 50%;background: rgba(251, 229, 25, .8);box-shadow: 0px 0px 27px 20px rgba(251, 229, 25, 0.8);font-size: 25px; /* offset-x | offset-y | blur-radius | spread-radius | color */
 }
 .speech_bubble{
     @include flex;
