@@ -569,12 +569,13 @@
     margin: 120px 280px;
     li{
       @include flex;
+      @include flex-wrap;
       font-size: 40px;color: #bcbcbc;
       p{font-size: 50px;color: $lYellow;}
     }
     li + li{padding-top: 50px;}
     .marginLeft1{
-      margin-left: 220px;
+      margin-left: 200px;
       p span{
         position: relative;
         &::after{
@@ -582,16 +583,26 @@
           content: "";position: absolute;width: 35px;height: 35px;top: 50%;left: -45px;
         }
       }
-      .color1{
+      .color1.twosome{
         margin-left: 50px;
         &::after{background: #54565a;}
         }
-      .color2{
+      .color2.twosome{
         margin-left: 80px;
         &::after{background: #d60037;}
         }
+      .color1.ikea{
+        margin-left: 50px;
+        &::after{background: #F2CB05;}
+        }
+      .color2.ikea{
+        margin-left: 80px;
+        &::after{background: #0E4970;}
+        }
     }
-    .marginLeft2{margin-left: 249px;}
+    .marginLeft2{margin-left: 227px;}
+    .marginLeft3{margin-left: 422px;}
+    .marginLeft4{margin-left: 81px;}
   }
 
   //공통
@@ -599,6 +610,7 @@
     display: block; width: 344px;height: 88px;border-radius: 44px;font-size: 40px;text-align: center;line-height: 2;transition: all 0.2s;
   }
 
+  //투썸
   .main, .sub1, .sub2{
     @include flex;
     @include justify-content(space-between);
@@ -613,10 +625,11 @@
     .screen_wrap{
       div + div{margin-top: 100px;}
     }
-    .screen{overflow: hidden; border-radius: 34px;width: 1014px;height: 700px;}
+    .screenBig{overflow: hidden;border-radius: 34px;width: 1014px;height: 700px;}
+    .screen{overflow: hidden;width: 1014px;border-radius: 34px;}
     .img1{
       @include animation(move_screen 20s ease 1s infinite backwards);
-      background: no-repeat  50% / cover;width: 1014px;height: 2500px;
+      background: no-repeat 50% 0 / cover;width: 1014px;height: 2500px;
     }
   }
   @include keyframes(move_screen){
@@ -634,33 +647,54 @@
     80%{transform: translateY(-2160px);}
     100%{transform: translateY(0);}
   }
+  @include keyframes(move_screen_ikea){
+    0%{transform: translateY(0);}
+    20%{transform: translateY(-625px);}
+    40%{transform: translateY(-1250px);}
+    60%{transform: translateY(-1800px);}
+    80%{transform: translateY(-2460px);}
+    100%{transform: translateY(0);}
+  }
 
 
   .main{
     position: relative;
-    .screen{
-      .img1{
-        background-image: url("../images/project/twosome_index.jpg");
+    .screenBig{
+      .img1{background-image: url("../images/project/twosome_index.jpg");}
+      .img1.ikeaPC{
+        @include animation(move_screen_ikea 20s ease 1s infinite backwards);
+        background-image: url("../images/project/ikea_PC.jpg");height: 3160px;
       }
-      .img2{background: url("../images/project/twosome_index.jpg") left 0 top 63% / cover;height: 617px;}
-      .img3{background: url("../images/project/twosome_index.jpg") left 0 bottom 0 / cover;height: 617px;}
+    }
+    .screen{
+      .img2{background: url("../images/project/twosome_index.jpg") left 0 top 63% / cover;height: 530px;}
+      .img3{background: url("../images/project/twosome_index.jpg") left 0 bottom 0 / cover;height: 575px;}
+      .img2.ikeaPC{background: url("../images/project/ikea_PC.jpg") left 0 top 63% / cover;height: 530px;}
+      .img3.ikeaPC{background: url("../images/project/ikea_PC.jpg") left 0 bottom 0 / cover;height: 575px;}
     }
   }
   .sub1{
-    .screen{
+    .screenBig{
       .img1{
         @include animation(move_screen_long 20s ease 1s infinite backwards);
         background-image: url("../images/project/twosome_coffStory.jpg");height: 2870px;
       }
-      .img2{background: url("../images/project/twosome_coffStory.jpg") left 0 top 63% / cover;height: 617px;}
+    }
+    .screen{
+      .img2{background: url("../images/project/twosome_coffStory.jpg") left 0 top 86% / cover;height: 760px;}
+      .img2.ikeaTb{background: url("../images/project/ikea_tablet.jpg") left 0 top 19% / cover;height: 617px;}
+      .img3.ikeaTb{background: url("../images/project/ikea_tablet.jpg") left 0 top 19% / cover;height: 617px;}
     }
   }
   .sub2{
-    .screen{
+    .screenBig{
       .img1{background-image: url("../images/project/twosome_menu.jpg");}
-      .img2{background: url("../images/project/twosome_menu.jpg") left 0 top 63% / cover;height: 617px;}
+    }
+    .screen{
+      .img2{background: url("../images/project/twosome_menu.jpg") left 0 top 19% / cover;height: 617px;}
     }
   }
+
   .btn{
     @include flex;
     @include justify-content(space-between);
@@ -673,14 +707,14 @@
       @include translateY-50;
       position: absolute;bottom: 0;right: -380px; background: url("../images/project/arrow_top.svg");width: 39px;height: 39px;
     }
-    #btnClose{position: absolute;bottom: 24px;right: -300px;font-size: 20px;color: #fff;}
+    #btnClose{position: absolute;bottom: 24px;right: -300px;font-size: 20px;color: #bcbcbc;}
   }
 }
 .bottom{
   @include flex;
   @include justify-content(space-between);
   width: 100%;height: 80px;line-height: 80px;background: #3E3653;font-size: 20px;
-  .clock{font-family: Tourney;font-weight: 300;background: #000;color: #fff;width: 50%;}
+  #clock{font-family: Tourney;font-weight: 300;color: #fff;width: 20%;line-height: 30px;text-align: center;padding-top: 10px;}
   .copyright{font-family: NotoSansKR;font-weight: 400;text-align: right;padding-right: 70px;box-sizing: border-box;}
   
 }
