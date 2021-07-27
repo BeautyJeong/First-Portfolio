@@ -22,7 +22,11 @@ $(document).ready(function () {
     let h = now.getHours();
     let m = now.getMinutes();
     let s = now.getSeconds();
-    console.log(now, yy);
+    console.log(now, yy, mm, dd, day, h, m, s);
   }
+  clock();
+
+  //const week = ['일', '월', '화', '수', '목', '금', '토'];
+  //console.log(week[day]);
 
 });

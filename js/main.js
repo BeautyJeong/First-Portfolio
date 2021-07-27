@@ -44,6 +44,23 @@ $(document).ready(function() {
   });
 
   //돋보기
+  $('.go_link').each(function () {
+    const boxPosX = $(this).offset().left;
+    const boxPosY = $(this).offset().top;
+    const circleHalfW = $(this).children('.circle').outerWidth() / 2;
+    const circleHalfH = $(this).children('.circle').outerHeight() / 2;
+    console.log(boxPosX,boxPosY);
+
+    $(this).on('mousemove', function (e) {
+      // 스크롤바의 이동거리를 포함하는 마우스 좌표 알아오기
+      const mouseX = e.pageX;
+      const mouseY = e.pageY;
+      const $circle = $(this).children('.circle');
+      console.log(mouseX,mouseY);
+      gsap.to($circle, {top: mouseY - boxPosY - circleHalfH, left: mouseX - boxPosX - circleHalfW, duration: 0.5});
+    });
+  });
+  //돋보기
   /* const boxPosX = $('.go_link').offset().left;
   const boxPosY = $('.go_link').offset().top;
   const circleHalfW = $('.go_link .circle').outerWidth() / 2;

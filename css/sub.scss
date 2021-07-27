@@ -613,27 +613,51 @@
     .screen_wrap{
       div + div{margin-top: 100px;}
     }
-    .screen{overflow: hidden;border-radius: 34px;}
-    .img1, .img2, .img3{background: no-repeat;width: 1014px;}
+    .screen{overflow: hidden; border-radius: 34px;width: 1014px;height: 700px;}
+    .img1{
+      @include animation(move_screen 20s ease 1s infinite backwards);
+      background: no-repeat  50% / cover;width: 1014px;height: 2500px;
+    }
   }
+  @include keyframes(move_screen){
+    0%{transform: translateY(0);}
+    20%{transform: translateY(-625px);}
+    40%{transform: translateY(-1250px);}
+    60%{transform: translateY(-1800px);}
+    100%{transform: translateY(0);}
+  }
+  @include keyframes(move_screen_long){
+    0%{transform: translateY(0);}
+    20%{transform: translateY(-625px);}
+    40%{transform: translateY(-1250px);}
+    60%{transform: translateY(-1800px);}
+    80%{transform: translateY(-2300px);}
+    100%{transform: translateY(0);}
+  }
+
 
   .main{
     position: relative;
     .screen{
-      .img1{background: url("../images/project/twosome_index.jpg") left 0 top 0 / cover;height: 700px;}
+      .img1{
+        background-image: url("../images/project/twosome_index.jpg");
+      }
       .img2{background: url("../images/project/twosome_index.jpg") left 0 top 63% / cover;height: 617px;}
       .img3{background: url("../images/project/twosome_index.jpg") left 0 bottom 0 / cover;height: 617px;}
     }
   }
   .sub1{
     .screen{
-      .img1{background: url("../images/project/twosome_coffStory.jpg") left 0 top 0 / cover;height: 700px;}
+      .img1{
+        @include animation(move_screen_long 20s ease 1s infinite backwards);
+        background-image: url("../images/project/twosome_coffStory.jpg");height: 3000px;
+      }
       .img2{background: url("../images/project/twosome_coffStory.jpg") left 0 top 63% / cover;height: 617px;}
     }
   }
   .sub2{
     .screen{
-      .img1{background: url("../images/project/twosome_menu.jpg") left 0 top 0 / cover;height: 700px;}
+      .img1{background-image: url("../images/project/twosome_menu.jpg");}
       .img2{background: url("../images/project/twosome_menu.jpg") left 0 top 63% / cover;height: 617px;}
     }
   }
