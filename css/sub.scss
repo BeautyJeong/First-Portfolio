@@ -620,7 +620,7 @@
         @include flex;
         @include align-items;
         @include justify-content;
-        position: absolute;top: 50%;left: 50%;width: 50%;height: 30%;background: rgba(0, 0, 0, .8);color: #fff;font-family: NotoSansKR; font-size: 20px;font-weight: 500;border-radius: 30px;line-height: 2;backface-visibility: hidden;
+        position: absolute;top: 50%;left: 50%;width: 70%;height: 30%;background: rgba(0, 0, 0, .8);color: #fff;font-family: NotoSansKR; font-size: 20px;font-weight: 500;border-radius: 30px;line-height: 2;backface-visibility: hidden;text-align: center;
       }
     }
 
@@ -697,8 +697,9 @@
     .screen{
       .img2{background: url("../images/project/twosome_index.jpg") left 0 top 63% / cover;height: 530px;}
       .img3{background: url("../images/project/twosome_index.jpg") left 0 bottom 0 / cover;height: 575px;}
-      .img2.ikeaPC{background: url("../images/project/ikea_PC.jpg") left 0 top 63% / cover;height: 530px;}
-      .img3.ikeaPC{background: url("../images/project/ikea_PC.jpg") left 0 bottom 0 / cover;height: 575px;}
+      .img2.ikeaPC{background: url("../images/project/ikea_PC.jpg") left 0 top 25% / cover;height: 530px;}
+      .img3.ikeaPC{background: url("../images/project/ikea_PC.jpg") left 0 top 63% / cover;height: 575px;}
+      .img4{background: url("../images/project/ikea_PC.jpg") left 0 top 87% / cover;height: 575px;}
     }
   }
   .sub1{
@@ -710,8 +711,6 @@
     }
     .screen{
       .img2{background: url("../images/project/twosome_coffStory.jpg") left 0 top 86% / cover;height: 760px;}
-      .img2.ikeaTb{background: url("../images/project/ikea_tablet.jpg") left 0 top 19% / cover;height: 617px;}
-      .img3.ikeaTb{background: url("../images/project/ikea_tablet.jpg") left 0 top 19% / cover;height: 617px;}
     }
   }
   .sub2{
@@ -721,6 +720,10 @@
     .screen{
       .img2{background: url("../images/project/twosome_menu.jpg") left 0 top 19% / cover;height: 617px;}
     }
+    .img2.ikeaTb{background: url("../images/project/ikea_tablet.jpg") left 0 top 6% / cover;height: 617px;}
+    .img3.ikeaTb{background: url("../images/project/ikea_tablet.jpg") left 0 top 17% / cover;height: 617px;}
+
+    iframe{margin-left: 300px;border-radius: 34px;}
   }
 
   .btn{
