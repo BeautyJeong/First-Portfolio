@@ -1217,6 +1217,70 @@
     text-align: center;
     line-height: 2;
     transition: all 0.2s; }
+  .introduce .card {
+    position: relative;
+    perspective: 2500px;
+    margin-bottom: 100px;
+    width: 1014px;
+    height: 575px; }
+    .introduce .card > div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1014px;
+      height: 575px;
+      transition: all 0.5s;
+      backface-visibility: hidden;
+      transition: transform 1s;
+      transform-style: preserve-3d; }
+      .introduce .card > div p {
+        -webkit-transform: translate(-50%, -50%) translateZ(100px);
+        -moz-transform: translate(-50%, -50%) translateZ(100px);
+        transform: translate(-50%, -50%) translateZ(100px);
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 50%;
+        height: 30%;
+        background: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        font-family: NotoSansKR;
+        font-size: 20px;
+        font-weight: 500;
+        border-radius: 30px;
+        line-height: 2;
+        backface-visibility: hidden; }
+    .introduce .card .front {
+      -webkit-transform: rotateY(0deg);
+      -moz-transform: rotateY(0deg);
+      transform: rotateY(0deg); }
+    .introduce .card .back {
+      -webkit-transform: rotateY(-180deg);
+      -moz-transform: rotateY(-180deg);
+      transform: rotateY(-180deg); }
+    .introduce .card:hover .front, .introduce .card.flip .front {
+      transform: rotateY(180deg); }
+    .introduce .card:hover .back, .introduce .card.flip .back {
+      transform: rotateY(0deg); }
+    .introduce .card .txt_yellow {
+      color: #FFCE00; }
+    .introduce .card .tit {
+      font-size: 30px; }
+  .introduce .hover {
+    font-family: NotoSansKR;
+    font-weight: 500;
+    font-size: 15px;
+    color: #fff;
+    margin: 100px 0 20px 10px; }
   .introduce .main, .introduce .sub1, .introduce .sub2 {
     display: -webkit-box;
     display: -moz-box;

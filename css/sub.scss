@@ -610,6 +610,34 @@
     display: block; width: 344px;height: 88px;border-radius: 44px;font-size: 40px;text-align: center;line-height: 2;transition: all 0.2s;
   }
 
+  //3d
+  .card{
+    position: relative;perspective: 2500px;margin-bottom: 100px;width: 1014px;height: 575px;
+    > div{
+      position: absolute;top: 0;left: 0;width: 1014px;height: 575px;transition: all 0.5s;backface-visibility: hidden;transition: transform 1s;transform-style: preserve-3d;
+      p{
+        @include transform(translate(-50%, -50%) translateZ(100px));
+        @include flex;
+        @include align-items;
+        @include justify-content;
+        position: absolute;top: 50%;left: 50%;width: 50%;height: 30%;background: rgba(0, 0, 0, .8);color: #fff;font-family: NotoSansKR; font-size: 20px;font-weight: 500;border-radius: 30px;line-height: 2;backface-visibility: hidden;
+      }
+    }
+
+    .front{
+      @include transform(rotateY(0deg));
+    }
+    .back{
+      @include transform(rotateY(-180deg));
+    }
+    &:hover .front, &.flip .front{transform: rotateY(180deg);}
+    &:hover .back, &.flip .back{transform: rotateY(0deg);}
+    .txt_yellow{color: $lYellow}
+    .tit{font-size: 30px;}
+  }
+  .hover{font-family: NotoSansKR;font-weight: 500;font-size: 15px;color: #fff;margin: 100px 0 20px 10px;}
+
+
   //투썸
   .main, .sub1, .sub2{
     @include flex;
